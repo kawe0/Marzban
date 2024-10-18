@@ -144,9 +144,9 @@ install_marzban() {
     docker_file_path="$APP_DIR/docker-compose.yml"
     # install requested version
     if [ "$marzban_version" == "latest" ]; then
-        sed -i "s|image: kawe0/marzban:.*|image: kawe0/marzban:latest|g" "$docker_file_path"
+        sed -i "s|image: kawe0/hello:.*|image: kawe0/hello:latest|g" "$docker_file_path"
     else
-        sed -i "s|image: kawe0/marzban:.*|image: kawe0/marzban:${marzban_version}|g" "$docker_file_path"
+        sed -i "s|image: kawe0/hello:.*|image: kawe0/hello:${marzban_version}|g" "$docker_file_path"
     fi
     echo "Installing $marzban_version version"
     colorized_echo green "File saved in $APP_DIR/docker-compose.yml"
