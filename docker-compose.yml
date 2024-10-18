@@ -1,6 +1,6 @@
 services:
   marzban:
-    image: kawe0/hello:latest
+    image: kawe0/ma:ma
     restart: always
     env_file: .env
     network_mode: host
