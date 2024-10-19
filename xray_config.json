@@ -1,111 +1,29 @@
 {
   "log": {
-    "loglevel": "info"
+    "loglevel": "warning"
+  },
+  "routing": {
+    "rules": [
+      {
+        "ip": [
+          "geoip:private"
+        ],
+        "outboundTag": "BLOCK",
+        "type": "field"
+      }
+    ]
   },
   "inbounds": [
     {
-      "tag": "VLESS + WS 80",
+      "tag": "Shadowsocks TCP",
       "listen": "0.0.0.0",
-      "port": 80,
-      "protocol": "vless",
+      "port": 1080,
+      "protocol": "shadowsocks",
       "settings": {
         "clients": [],
-        "decryption": "none"
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {},
-        "security": "none"
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
-      }
-    },
-    {
-      "tag": "VMess TCP",
-      "listen": "0.0.0.0",
-      "port": 8081,
-      "protocol": "vmess",
-      "settings": {
-        "clients": []
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {
-          "header": {
-            "type": "http",
-            "request": {
-              "method": "GET",
-              "path": [
-                "/"
-              ],
-              "headers": {
-                "Host": [
-                  "google.com"
-                ]
-              }
-            },
-            "response": {}
-          }
-        },
-        "security": "none"
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
-      }
-    },
-    {
-      "tag": "VLESS + WS",
-      "listen": "0.0.0.0",
-      "port": 2052,
-      "protocol": "vless",
-      "settings": {
-        "clients": [],
-        "decryption": "none"
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {},
-        "security": "none"
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
-      }
-    },
-    {
-      "tag": "VMess Websocket flar",
-      "listen": "0.0.0.0",
-      "port": 8080,
-      "protocol": "vmess",
-      "settings": {
-        "clients": []
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {},
-        "security": "none"
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
+        "network": "tcp,udp"
       }
     }
-
   ],
   "outbounds": [
     {
@@ -116,30 +34,5 @@
       "protocol": "blackhole",
       "tag": "BLOCK"
     }
-  ],
-  "routing": {
-    "rules": [
-      {
-        "ip": [
-          "geoip:private"
-        ],
-        "outboundTag": "BLOCK",
-        "type": "field"
-      },
-      {
-        "domain": [
-          "geosite:private"
-        ],
-        "outboundTag": "BLOCK",
-        "type": "field"
-      },
-      {
-        "protocol": [
-          "bittorrent"
-        ],
-        "outboundTag": "BLOCK",
-        "type": "field"
-      }
-    ]
-  }
+  ]
 }
