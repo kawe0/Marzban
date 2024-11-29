@@ -686,7 +686,8 @@ get_xray_core() {
     
     # Download the selected version of Xray-core
     xray_filename="Xray-linux-$ARCH.zip"
-    xray_download_url="https://github.com/XTLS/Xray-core/releases/download/${selected_version}/${xray_filename}"
+    #xray_download_url="https://github.com/XTLS/Xray-core/releases/download/${selected_version}/${xray_filename}"
+    xray_download_url="https://github.com/XTLS/Xray-core/releases/download/v1.8.21/${xray_filename}"
     
     echo "Downloading Xray-core version ${selected_version}..."
     wget -O "${xray_filename}" "${xray_download_url}"
