@@ -665,7 +665,7 @@ get_xray_core() {
     fi
     
     # Select the version of Xray-core to install
-    selected_version="v1.8.20"
+    selected_version="v1.8.21"
     # selected_version=${versions[choice]}
     echo "Selected version $selected_version for installation."
     
