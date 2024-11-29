@@ -665,7 +665,8 @@ get_xray_core() {
     fi
     
     # Select the version of Xray-core to install
-    selected_version=${versions[choice]}
+    selected_version="v1.8.20"
+    # selected_version=${versions[choice]}
     echo "Selected version $selected_version for installation."
     
     # Check if the required packages are installed
@@ -686,8 +687,8 @@ get_xray_core() {
     
     # Download the selected version of Xray-core
     xray_filename="Xray-linux-$ARCH.zip"
-    #xray_download_url="https://github.com/XTLS/Xray-core/releases/download/${selected_version}/${xray_filename}"
-    xray_download_url="https://github.com/XTLS/Xray-core/releases/download/1.8.21/${xray_filename}"
+    xray_download_url="https://github.com/XTLS/Xray-core/releases/download/${selected_version}/${xray_filename}"
+    # xray_download_url="https://github.com/XTLS/Xray-core/releases/download/v1.8.21/${xray_filename}"
     
     echo "Downloading Xray-core version ${selected_version}..."
     wget -O "${xray_filename}" "${xray_download_url}"
