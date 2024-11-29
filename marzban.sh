@@ -634,7 +634,8 @@ identify_the_operating_system_and_architecture() {
 get_xray_core() {
     identify_the_operating_system_and_architecture
     # Send a request to GitHub API to get information about the latest four releases
-    latest_releases=$(curl -s "https://api.github.com/repos/XTLS/Xray-core/releases?per_page=$LAST_XRAY_CORES")
+    latest_releases=$(curl -s "https://api.github.com/repos/XTLS/Xray-core/releases")
+    #latest_releases=$(curl -s "https://api.github.com/repos/XTLS/Xray-core/releases?per_page=$LAST_XRAY_CORES")
     
     # Extract versions from the JSON response
     versions=($(echo "$latest_releases" | grep -oP '"tag_name": "\K(.*?)(?=")'))
